@@ -25,37 +25,18 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import NavigationBar from './components/NavigationBar';
+import Tabs from './components/Tabs';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-
     <IonReactRouter>
-      <IonTabs>
       <IonRouterOutlet>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        
-        <Route exact path={"/login"}>
-          <Login />
-        </Route>
-        <Route exact path={"/create"}>
-          <CreatePost />
-        </Route>
+        <Route exact path={"/"} component={Login}/>
+        <Route path={"/app"} component={Tabs}/>
+
       </IonRouterOutlet>
-      <IonTabBar slot="bottom">
-        <IonTabButton tab='home' href='/'>
-          <IonLabel>Home</IonLabel>
-          <IonIcon icon={homeOutline} />
-        </IonTabButton>
-        <IonTabButton tab='create' href='/create'>
-          <IonLabel>New</IonLabel>
-          <IonIcon icon={addOutline}/>
-        </IonTabButton>
-      </IonTabBar>
-      </IonTabs>
     </IonReactRouter>
   </IonApp>
 );

@@ -7,6 +7,14 @@ const Home: React.FC = () => {
   return (
     <>
     <NavigationBar />
+    <IonPage>
+            <IonHeader>
+                <IonToolbar>
+                    <IonTitle>Home</IonTitle>
+                </IonToolbar>
+            </IonHeader>
+            <IonContent className="ion-padding">Home page Here</IonContent>
+        </IonPage>
     </>
   );
 };
