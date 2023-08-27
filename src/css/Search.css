@@ -1,0 +1,5 @@
+
+.search-header {
+    text-align: center;
+    --color: var(--ion-color-primary-tint);
+}

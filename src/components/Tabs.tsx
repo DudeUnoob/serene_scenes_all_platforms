@@ -2,28 +2,38 @@ import { IonContent, IonHeader, IonTabs, IonPage, IonIcon, IonRouterOutlet, IonT
 import Tab1 from "../pages/Tab1";
 import { Redirect, Route } from "react-router-dom"
 import Tab2 from "../pages/Tab2";
-import { playCircle, radio, library, search, addOutline, homeOutline } from 'ionicons/icons';
+import { playCircle, radio, library, search, addOutline, homeOutline, searchCircle, searchCircleOutline, searchCircleSharp, searchOutline, compass } from 'ionicons/icons';
+import CreatePost from "../pages/Create_Post";
+import Home from "../pages/Home";
+import Search from "../pages/Search";
+import Login from "../pages/Login";
 
 
 const Tabs: React.FC = () => {
     return (
         <IonTabs>
             <IonRouterOutlet>
-                <Route path="/app/tab1" component={Tab1} />
-                <Route path={"/app/tab2"} component={Tab2}/>
+                <Route path="/app/home" component={Login} />
+                <Route path={"/app/create"} component={CreatePost}/>
                 <Route exact path="/app">
-                    <Redirect to={"/app/tab1"}/>
+                    <Redirect to={"/app/home"}/>
                 </Route>
+                <Route path={"/app/search"} component={Search}/>
+
             </IonRouterOutlet>
 
            <IonTabBar slot="bottom">
-                <IonTabButton tab="tab1" href="/app/tab1">
-                    <IonIcon icon={homeOutline}></IonIcon>
-                    <IonLabel>Tab1</IonLabel>
+                <IonTabButton tab="Home" href="/app/home">
+                    <IonIcon icon={homeOutline} />
+                    <IonLabel>Home</IonLabel>
                 </IonTabButton>
-                <IonTabButton tab="tab2" href="/app/tab2">
-                    <IonIcon icon={addOutline}></IonIcon>
-                    <IonLabel>Tab2</IonLabel>
+                <IonTabButton tab="create" href="/app/create">
+                    <IonIcon icon={addOutline} />
+                    <IonLabel>Create</IonLabel>
+                </IonTabButton>
+                <IonTabButton tab="search" href="/app/search">
+                    <IonIcon icon={searchOutline} />
+                    <IonLabel>Search</IonLabel>
                 </IonTabButton>
            </IonTabBar>
         </IonTabs>

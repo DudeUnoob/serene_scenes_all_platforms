@@ -7,7 +7,7 @@ export default function NavigationBar() {
         <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Blank</IonTitle>
+          <IonTitle>Bro what</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>

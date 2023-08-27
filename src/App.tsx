@@ -26,19 +26,32 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import NavigationBar from './components/NavigationBar';
 import Tabs from './components/Tabs';
+import initializeFirebase from './functions/initializeFirebase';
+import { useEffect } from 'react';
+import { UserProvider } from './context/UserContext';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path={"/"} component={Login}/>
-        <Route path={"/app"} component={Tabs}/>
+const App: React.FC = () => {
 
-      </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
-);
+  useEffect(() => {
+    
+  }, [])
+
+  return (
+    <UserProvider>
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route exact path={"/"}>
+              <Redirect to={"/app"} />
+            </Route>
+            <Route path={"/app"} component={Tabs} />
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    </UserProvider>
+  )
+};
 
 export default App;

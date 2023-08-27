@@ -1,11 +1,18 @@
+import { IonPage, IonContent, IonHeader, IonToolbar, IonTitle } from "@ionic/react"
+
 
 
 
 const CreatePost: React.FC = () => {
     return (
-        <>
-            <h1>Createa a new post!</h1>
-        </>
+        <IonPage>
+        <IonHeader>
+            <IonToolbar>
+                <IonTitle>Create Post</IonTitle>
+            </IonToolbar>
+        </IonHeader>
+        <IonContent className="ion-padding">Create a post</IonContent>
+    </IonPage>
     )
 }
 
