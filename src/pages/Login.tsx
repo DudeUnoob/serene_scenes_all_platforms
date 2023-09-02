@@ -1,7 +1,7 @@
 import { IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonRouter } from "@ionic/react"
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth"
 import { createOutline, logInOutline, logoGoogle, personCircleOutline } from "ionicons/icons"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { UserContext, useUser, useUserUpdate } from "../context/UserContext"
 import { validateAuth } from "../functions/validateAuth"
 
@@ -13,17 +13,16 @@ const Login: React.FC = () => {
     const updateUser = useUserUpdate()?.googleLogin
     const updateUserLogout = useUserUpdate()?.googleLogout
 
-    const navigation = useIonRouter()
 
     const doLogin = () => {
-        navigation.push('/app', 'forward', 'replace')
+      
     }
 
-    useEffect(() => {
-        if (token != null){
 
-        }
-    }, [userData, token])
+    useEffect(() => {
+
+        console.log(userData)
+    }, [token, userData])
 
     const loginWithGoogle = async() => {
         
@@ -34,7 +33,35 @@ const Login: React.FC = () => {
         updateUserLogout()
     }
 
+
+    if(userData !== null) {
+        return (
+            <IonPage>
+            <IonHeader>
+                <IonToolbar color={"primary"}>
+                    <IonTitle>Login</IonTitle>
+                </IonToolbar>
+            </IonHeader>
+            <IonContent className="ion-padding">
+                <IonCard>
+                    <IonCardContent>
+                        
+                            
+                            <IonButton type="submit" expand="block" className="ion-margin-top"  onClick={logoutWithGoogle}>
+                                Logout
+                                <IonIcon icon={logInOutline} slot="end"/>
+                            </IonButton>
+                            
+                    </IonCardContent>
+                </IonCard>
+
+            </IonContent>
+        </IonPage>
+        )
+    }
+    else {
     return (
+
         <IonPage>
             <IonHeader>
                 <IonToolbar color={"primary"}>
@@ -67,6 +94,7 @@ const Login: React.FC = () => {
             </IonContent>
         </IonPage>
     )
+    }
 }
 
 export default Login;
