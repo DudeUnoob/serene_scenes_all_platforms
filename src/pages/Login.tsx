@@ -36,27 +36,7 @@ const Login: React.FC = () => {
 
     if(userData !== null) {
         return (
-            <IonPage>
-            <IonHeader>
-                <IonToolbar color={"primary"}>
-                    <IonTitle>Login</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent className="ion-padding">
-                <IonCard>
-                    <IonCardContent>
-                        
-                            
-                            <IonButton type="submit" expand="block" className="ion-margin-top"  onClick={logoutWithGoogle}>
-                                Logout
-                                <IonIcon icon={logInOutline} slot="end"/>
-                            </IonButton>
-                            
-                    </IonCardContent>
-                </IonCard>
-
-            </IonContent>
-        </IonPage>
+            <h1>Hello world</h1>
         )
     }
     else {

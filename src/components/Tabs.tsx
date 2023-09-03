@@ -2,13 +2,14 @@ import { IonContent, IonHeader, IonTabs, IonPage, IonIcon, IonRouterOutlet, IonT
 import Tab1 from "../pages/Tab1";
 import { Redirect, Route } from "react-router-dom"
 import Tab2 from "../pages/Tab2";
-import { playCircle, radio, library, search, addOutline, homeOutline, searchCircle, searchCircleOutline, searchCircleSharp, searchOutline, compass } from 'ionicons/icons';
+import { playCircle, radio, library, personOutline, search, addOutline, homeOutline, searchCircle, searchCircleOutline, searchCircleSharp, searchOutline, compass } from 'ionicons/icons';
 import CreatePost from "../pages/Create_Post";
 import Home from "../pages/Home";
 import Search from "../pages/Search";
 import Login from "../pages/Login";
 import { useEffect, useState } from "react";
 import { useUser } from "../context/UserContext";
+import Profile from "../pages/Profile";
 
 
 const Tabs: React.FC = () => {
@@ -46,6 +47,10 @@ const Tabs: React.FC = () => {
                     <IonIcon icon={searchOutline} />
                     <IonLabel>Search</IonLabel>
                 </IonTabButton>
+                <IonTabButton tab="profile" href="/app/profile" >
+                    <IonIcon icon={personOutline} />
+                    <IonLabel>User</IonLabel>
+                </IonTabButton>
            </IonTabBar>
 
            <IonRouterOutlet>
@@ -55,7 +60,7 @@ const Tabs: React.FC = () => {
                     <Redirect to={"/app/home"}/>
                 </Route>
                 <Route path={"/app/search"} component={Search}/>
-
+                <Route path={"/app/profile"} component={Profile}/>
             </IonRouterOutlet>
         </IonTabs>
         )
